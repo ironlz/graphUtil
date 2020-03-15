@@ -76,9 +76,15 @@ public class GraphUtil {
         return result;
     }
 
+    /**
+     * 生成输入文件
+     * @param rels 要生成的关系
+     * @param mainType 主节点
+     * @return 生成的计算文件
+     */
     public static String generateInputFile(Map<Long, Relationship> rels, String mainType)
     {
-        StringBuilder builder = new StringBuilder();
+        StringBuilder builder = new StringBuilder(); // 这里操作文件
         Map<NodeHolder, Long> holder2Id = new HashMap<>();
         for (Relationship value : rels.values()) {
             NodeHolder fakeNode = null;
@@ -102,6 +108,12 @@ public class GraphUtil {
         return builder.toString();
     }
 
+    /**
+     * 如果缓存中不存在则放入，兼容JDK1.7
+     * @param holder2Id 缓存
+     * @param fakeNode 虚节点
+     * @return 虚节点id
+     */
     private static Long putIfAbsent(Map<NodeHolder, Long> holder2Id, NodeHolder fakeNode) {
         if (holder2Id.containsKey(fakeNode))
         {
