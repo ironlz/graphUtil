@@ -12,8 +12,14 @@ public class Relationship {
     private Direction direction;
     private String relType;
     private String uniqueValue;
+    private long id;
 
-    public Relationship(int startNodeId, int endNodeId, String startMKey, String endMKey, String startMValue, String endMValue, Direction direction, String uniqueValue, String relType) {
+    public long getId() {
+        return id;
+    }
+
+    public Relationship(int startNodeId, int endNodeId, String startMKey, String endMKey, String startMValue,
+                        String endMValue, Direction direction, String uniqueValue, String relType, long id) {
         this.startNodeId = startNodeId;
         this.endNodeId = endNodeId;
         this.startMKey = startMKey;
@@ -23,6 +29,7 @@ public class Relationship {
         this.direction = direction;
         this.uniqueValue = uniqueValue;
         this.relType = relType;
+        this.id = id;
     }
 
     @Override
